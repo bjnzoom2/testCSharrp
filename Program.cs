@@ -6,7 +6,7 @@ class Program
     {
         String name = "";
 
-        while (name.Length < 1)
+        while (name.Length < 1 && name[0] != ' ')
         {
             Console.WriteLine("Please enter your name");
             name = Console.ReadLine();
