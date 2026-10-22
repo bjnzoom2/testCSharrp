@@ -4,19 +4,23 @@ class Program
 {
     static void Main(string[] args)
     {
-        String name = "";
+        int length, width;
+        char symbol;
 
-        while (name.Length < 1 && name[0] != ' ')
+        Console.WriteLine("Enter rectangle length:");
+        length = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter rectangle width:");
+        width = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter symbol to draw:");
+        symbol = Console.ReadLine()[0];
+
+        for (int i = 0; i < width; i++)
         {
-            Console.WriteLine("Please enter your name");
-            name = Console.ReadLine();
-        }
-
-        Console.WriteLine("Hello, " + name);
-
-        for (int i = 0; i < name.Length; i++)
-        {
-            Console.WriteLine(name[i]);
+            for (int j = 0; j < length; j++)
+            {
+                Console.Write(symbol);
+            }
+            Console.Write('\n');
         }
     }
 } 
