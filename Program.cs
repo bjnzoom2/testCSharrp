@@ -4,23 +4,29 @@ class Program
 {
     static void Main(string[] args)
     {
-        int length, width;
-        char symbol;
 
-        Console.WriteLine("Enter rectangle length:");
-        length = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Enter rectangle width:");
-        width = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Enter symbol to draw:");
-        symbol = Console.ReadLine()[0];
+        Random random = new Random();
+        int randomNumber = random.Next(1, 100);
+        int guessedNumber = 0;
+        int tries = 0;
 
-        for (int i = 0; i < width; i++)
+        while (guessedNumber != randomNumber)
         {
-            for (int j = 0; j < length; j++)
+            Console.WriteLine("Guess a number through 1 to 100");
+            guessedNumber = Convert.ToInt32(Console.ReadLine());
+            tries++;
+
+            if (guessedNumber > randomNumber)
             {
-                Console.Write(symbol);
+                Console.WriteLine(guessedNumber + " is too high. Try again");
+                continue;
+            } else if (guessedNumber < randomNumber)
+            {
+                Console.WriteLine(guessedNumber + " is too low. Try again");
+                continue;
             }
-            Console.Write('\n');
         }
+
+        Console.WriteLine("You guessed correctly. It took " + tries + " tries");
     }
 } 
