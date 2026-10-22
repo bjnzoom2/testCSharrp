@@ -4,14 +4,23 @@ class Program
 {
     static void Main(string[] args)
     {
-        double opposite, adjacent;
+        Random random = new Random();
 
-        Console.Write("Enter opposite length:\n");
-        opposite = Convert.ToDouble(Console.ReadLine());
-        Console.Write("Enter adjacent length:\n");
-        adjacent = Convert.ToDouble(Console.ReadLine());
+        int dice1 = random.Next(1, 6);
+        int dice2 = random.Next(1, 6);
+        int dice3 = random.Next(1, 6);
 
-        double hypotenuse = Math.Sqrt((opposite * opposite) + (adjacent * adjacent));
-        Console.Write("Hypotenuse: " + hypotenuse + '\n');
+        int totalSum = dice1 + dice2 + dice3;
+
+        Console.Write("3 dice are rolled. Guess the total sum of the numbers rolled on the dice.\n");
+        int guessedSum = Convert.ToInt32(Console.ReadLine());
+
+        if (guessedSum == totalSum)
+        {
+            Console.Write("You guessed correctly.\n");
+        } else
+        {
+            Console.Write("You guessed incorrectly. The total sum was " + totalSum + ".\n");
+        }
     }
 } 
