@@ -4,15 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("How old are you?\n");
-        String textAge = Console.ReadLine();
+        double opposite, adjacent;
 
-        Console.Write("What is your name?\n");
-        String name = Console.ReadLine();
+        Console.Write("Enter opposite length:\n");
+        opposite = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Enter adjacent length:\n");
+        adjacent = Convert.ToDouble(Console.ReadLine());
 
-        if (textAge != null && name != null)
-        {
-            Console.Write("You are " + name + ", and you are " + textAge + " years old this year.\n");
-        }
+        double hypotenuse = Math.Sqrt((opposite * opposite) + (adjacent * adjacent));
+        Console.Write("Hypotenuse: " + hypotenuse + '\n');
     }
 } 
