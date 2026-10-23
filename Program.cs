@@ -6,8 +6,8 @@ class Program
     {
         Cat cat1 = new Cat("Lily", 2, "Maine Coon");
         Dog dog1 = new Dog("Max", 4, "German Sheperd");
-        Console.WriteLine($"Cat, Name: {cat1.getName()}, Age: {cat1.getAge()}, Breed: {cat1.getCatBreed()}");
-        Console.WriteLine($"Dog, Name: {dog1.getName()}, Age: {dog1.getAge()}, Breed: {dog1.getDogBreed()}");
+        Console.WriteLine(cat1.ToString());
+        Console.WriteLine(dog1.ToString());
         cat1.speak(10);
         dog1.speak(10);
         Console.WriteLine($"Number of pets: {Pet.getNumberOfPets()}");
@@ -65,6 +65,11 @@ public class Cat : Pet
         Console.WriteLine();
     }
 
+    public override string ToString()
+    {
+        return $"Cat, Name: {this.name}, Age: {this.age}, Breed: {this.catBreed}";
+    }
+
     public String getCatBreed()
     {
         return this.catBreed;
@@ -90,6 +95,11 @@ public class Dog : Pet
             Console.Write("Woof ");
         }
         Console.WriteLine();
+    }
+
+    public override string ToString()
+    {
+        return $"Dog, Name: {this.name}, Age: {this.age}, Breed: {this.dogBreed}";
     }
 
     public String getDogBreed()
