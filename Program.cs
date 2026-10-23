@@ -4,87 +4,34 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("How many numbers do you want to sum up");
-        int noOfValues = 0;
+        String[,] data = { {"Abby", "14", "Brooklyn", "Ice cream"},
+                           {"Brandon", "12", "Germany", "Cheesecake"},
+                           {"Harmony", "13", "Singapore", "Chocolate"} };
 
-        try
+        for (int i = 0; i < data.GetLength(0); i++)
         {
-            noOfValues = Convert.ToInt32(Console.ReadLine());
-        } catch (FormatException)
-        {
-            Console.WriteLine("Please enter an integer");
-            return;
-        }
-
-        double[] values = new double[noOfValues];
-
-        for (int i = 0; i < noOfValues; i++)
-        {
-            switch (i)
+            for (int j = 0; j < data.GetLength(1); j++)
             {
-                case 0:
-                    Console.WriteLine("Enter 1st number");
-                    break;
-                case 1:
-                    Console.WriteLine("Enter 2nd number");
-                    break;
-                case 2:
-                    Console.WriteLine("Enter 3rd number");
-                    break;
-                default:
-                    Console.WriteLine($"Enter {i + 1}th number");
-                    break;
+                switch (j)
+                {
+                    case 0:
+                        Console.Write("Name: ");
+                        break;
+                    case 1:
+                        Console.Write("Age: ");
+                        break;
+                    case 2:
+                        Console.Write("Lives in: ");
+                        break;
+                    case 3:
+                        Console.Write("Favourite desert: ");
+                        break;
+                }
+
+                Console.Write($"{data[i, j]}, ");
             }
 
-            try
-            {
-                values[i] = Convert.ToDouble(Console.ReadLine());
-            } catch (FormatException)
-            {
-                Console.WriteLine("Please enter a double");
-                return;
-            }
-        }
-
-        double sum = summation(values);
-        Console.WriteLine($"Sum is {sum}");
-
-        print("Hello", 3, true);
-    }
-
-    static double summation(params double[] values)
-    {
-        double sum = 0;
-        foreach (double value in values)
-        {
-            sum += value;
-        }
-
-        return sum;
-    }
-
-    static void print(String str)
-    {
-        Console.Write(str);
-    }
-
-    static void print(String str, int times)
-    {
-        for (int i = 0; i < times; i++)
-        {
-            Console.Write(str);
-        }
-    }
-
-    static void print(String str, int times, bool whitespace)
-    {
-        for (int i = 0; i < times; i++)
-        {
-            Console.Write(str);
-            if (whitespace)
-            {
-                Console.Write(' ');
-            }
+            Console.WriteLine();
         }
     }
 } 
