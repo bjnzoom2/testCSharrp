@@ -4,115 +4,47 @@ class Program
 {
     static void Main()
     {
-        Cat cat1 = new Cat("Lily", 2, "Maine Coon");
-        Dog dog1 = new Dog("Max", 4, "German Sheperd");
-        Pet[] pets = { cat1, dog1 };
-        
-        foreach (Pet pet in pets)
-        {
-            Console.WriteLine(pet);
-            pet.speak(10);
-        }
+        Skunk skunk1 = new Skunk();
+        Crocodile crocodile1 = new Crocodile();
 
-        Console.WriteLine($"Number of pets: {Pet.getNumberOfPets()}");
+        crocodile1.ambush();
+        skunk1.stink();
+        skunk1.flee();
     }
 }
 
-public abstract class Pet
+interface IPrey
 {
-    protected String name;
-    protected int age;
-    protected static int numberOfPets;
+    void flee();
+}
 
-    public virtual void speak(int times)
+interface IPreadtor
+{
+    void hunt();
+}
+
+class Skunk : IPrey
+{
+    public void flee()
     {
-        for (int i = 0; i < times; i++)
-        {
-            Console.Write("ꙮ ");
-        }
-        Console.WriteLine();
+        Console.WriteLine("Skunk ran away");
     }
 
-    public override string ToString()
+    public void stink()
     {
-        return "ꙮ";
-    }
-
-    public String getName()
-    {
-        return this.name;
-    }
-
-    public int getAge()
-    {
-        return this.age;
-    }
-
-    public static int getNumberOfPets()
-    {
-        return numberOfPets;
+        Console.WriteLine("Skunk released skink gas");
     }
 }
 
-public class Cat : Pet
+class Crocodile : IPreadtor
 {
-    public Cat(String name_, int age_, String catBreed_) {
-        this.name = name_;
-        this.age = age_;
-        this.catBreed = catBreed_;
-        numberOfPets++;
+    public void hunt()
+    {
+        Console.WriteLine("Crocodile searches for food");
     }
 
-    private String catBreed;
-
-    public override void speak(int times)
+    public void ambush()
     {
-        for (int i = 0; i < times; i++)
-        {
-            Console.Write("Meow ");
-        }
-        Console.WriteLine();
-    }
-
-    public override string ToString()
-    {
-        return $"Cat, Name: {this.name}, Age: {this.age}, Breed: {this.catBreed}";
-    }
-
-    public String getCatBreed()
-    {
-        return this.catBreed;
-    }
-}
-
-public class Dog : Pet
-{
-    public Dog(String name_, int age_, String dogBreed_)
-    {
-        this.name = name_;
-        this.age = age_;
-        this.dogBreed = dogBreed_;
-        numberOfPets++;
-    }
-
-    private String dogBreed;
-
-    public override void speak(int times)
-    {
-        for (int i = 0; i < times; i++)
-        {
-            Console.Write("Woof ");
-        }
-        Console.WriteLine();
-    }
-
-    public override string ToString()
-    {
-        return $"Dog, Name: {this.name}, Age: {this.age}, Breed: {this.dogBreed}";
-    }
-
-    public String getDogBreed()
-    {
-        return this.dogBreed;
+        Console.WriteLine("Crocodile ambushes prey");
     }
 }
