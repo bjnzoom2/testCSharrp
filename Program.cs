@@ -14,23 +14,14 @@ class Program
 class Human
 {
     public Human(String name_, int age_) {
-        this.name = name_;
+        this.Name = name_;
         this.age = age_;
     }
-
-    private String name;
     private int age;
 
     public String Name
     {
-        get
-        {
-            return name;
-        }
-        set
-        {
-            name = value;
-        }
+        get; set;
     }
 
     public int Age
