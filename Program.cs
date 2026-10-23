@@ -6,10 +6,14 @@ class Program
     {
         Cat cat1 = new Cat("Lily", 2, "Maine Coon");
         Dog dog1 = new Dog("Max", 4, "German Sheperd");
-        Console.WriteLine(cat1);
-        Console.WriteLine(dog1);
-        cat1.speak(10);
-        dog1.speak(10);
+        Pet[] pets = { cat1, dog1 };
+        
+        foreach (Pet pet in pets)
+        {
+            Console.WriteLine(pet);
+            pet.speak(10);
+        }
+
         Console.WriteLine($"Number of pets: {Pet.getNumberOfPets()}");
     }
 }
@@ -27,6 +31,11 @@ public abstract class Pet
             Console.Write("ꙮ ");
         }
         Console.WriteLine();
+    }
+
+    public override string ToString()
+    {
+        return "ꙮ";
     }
 
     public String getName()
