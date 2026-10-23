@@ -5,8 +5,10 @@ class Program
     static void Main()
     {
         Dog doggy = new Dog("Max", 4);
+        Dog doggy2 = new Dog("Elmo", 6);
         Console.WriteLine($"Name: {doggy.getName()}, Age: {doggy.getAge()}");
         doggy.bark(10);
+        Console.WriteLine($"Number of dogs: {Dog.numberOfDogs}");
     }
 }
 
@@ -16,9 +18,11 @@ public class Dog
     {
         this.name = name_;
         this.age = age_;
+        numberOfDogs++;
     }
     private String name;
     private int age;
+    public static int numberOfDogs;
 
     public void bark(int times)
     {
