@@ -4,22 +4,40 @@ class Program
 {
     static void Main()
     {
-        List<int> values = new List<int>();
-        for (int i = 0; i <= 1000; i++)
+        Human human = new Human("Lucas ng", 14);
+        Console.WriteLine(human.Age);
+        human.Name = "Mily";
+        Console.WriteLine(human.Name);
+    }
+}
+
+class Human
+{
+    public Human(String name_, int age_) {
+        this.name = name_;
+        this.age = age_;
+    }
+
+    private String name;
+    private int age;
+
+    public String Name
+    {
+        get
         {
-            values.Add(i);
+            return name;
         }
-
-        values.RemoveRange(100, 200);
-        values.Insert(100, 999999999);
-        values.Reverse();
-
-        foreach (int value in values)
+        set
         {
-            Console.WriteLine(value);
+            name = value;
         }
+    }
 
-        Console.WriteLine(values.Count);
-        Console.WriteLine(values.Contains(100));
+    public int Age
+    {
+        get
+        {
+            return age;
+        }
     }
 }
