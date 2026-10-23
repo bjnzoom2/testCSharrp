@@ -4,20 +4,45 @@ class Program
 {
     static void Main(string[] args)
     {
-        String[] data = new string[3];
+        double sum = summation(1.0, 2.0, 5.0, 3.14159, 2.712);
+        Console.WriteLine(sum);
 
-        Console.WriteLine("What is your name");
-        data[0] = Console.ReadLine();
-        Console.WriteLine("How old are you");
-        data[1] = Console.ReadLine();
-        Console.WriteLine("Where do you live");
-        data[2] = Console.ReadLine();
+        print("Hello", 3, true);
+    }
 
-        Console.WriteLine();
-
-        foreach (String dataPiece in data)
+    static double summation(params double[] values)
+    {
+        double sum = 0;
+        foreach (double value in values)
         {
-            Console.WriteLine(dataPiece);
+            sum += value;
+        }
+
+        return sum;
+    }
+
+    static void print(String str)
+    {
+        Console.Write(str);
+    }
+
+    static void print(String str, int times)
+    {
+        for (int i = 0; i < times; i++)
+        {
+            Console.Write(str);
+        }
+    }
+
+    static void print(String str, int times, bool whitespace)
+    {
+        for (int i = 0; i < times; i++)
+        {
+            Console.Write(str);
+            if (whitespace)
+            {
+                Console.Write(' ');
+            }
         }
     }
 } 
