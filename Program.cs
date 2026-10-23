@@ -6,8 +6,8 @@ class Program
     {
         Cat cat1 = new Cat("Lily", 2, "Maine Coon");
         Dog dog1 = new Dog("Max", 4, "German Sheperd");
-        Console.WriteLine(cat1.ToString());
-        Console.WriteLine(dog1.ToString());
+        Console.WriteLine(cat1);
+        Console.WriteLine(dog1);
         cat1.speak(10);
         dog1.speak(10);
         Console.WriteLine($"Number of pets: {Pet.getNumberOfPets()}");
