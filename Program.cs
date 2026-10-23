@@ -2,36 +2,39 @@
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        String[,] data = { {"Abby", "14", "Brooklyn", "Ice cream"},
-                           {"Brandon", "12", "Germany", "Cheesecake"},
-                           {"Harmony", "13", "Singapore", "Chocolate"} };
+        Dog doggy = new Dog("Max", 4);
+        Console.WriteLine($"Name: {doggy.getName()}, Age: {doggy.getAge()}");
+        doggy.bark(10);
+    }
+}
 
-        for (int i = 0; i < data.GetLength(0); i++)
+public class Dog
+{
+    public Dog(String name_, int age_)
+    {
+        this.name = name_;
+        this.age = age_;
+    }
+    private String name;
+    private int age;
+
+    public void bark(int times)
+    {
+        for (int i = 0; i < times; i++)
         {
-            for (int j = 0; j < data.GetLength(1); j++)
-            {
-                switch (j)
-                {
-                    case 0:
-                        Console.Write("Name: ");
-                        break;
-                    case 1:
-                        Console.Write("Age: ");
-                        break;
-                    case 2:
-                        Console.Write("Lives in: ");
-                        break;
-                    case 3:
-                        Console.Write("Favourite desert: ");
-                        break;
-                }
-
-                Console.Write($"{data[i, j]}, ");
-            }
-
-            Console.WriteLine();
+            Console.Write("Woof ");
         }
     }
-} 
+
+    public String getName()
+    {
+        return this.name;
+    }
+
+    public int getAge()
+    {
+        return this.age;
+    }
+}
