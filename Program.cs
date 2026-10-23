@@ -4,47 +4,22 @@ class Program
 {
     static void Main()
     {
-        Skunk skunk1 = new Skunk();
-        Crocodile crocodile1 = new Crocodile();
+        List<int> values = new List<int>();
+        for (int i = 0; i <= 1000; i++)
+        {
+            values.Add(i);
+        }
 
-        crocodile1.ambush();
-        skunk1.stink();
-        skunk1.flee();
-    }
-}
+        values.RemoveRange(100, 200);
+        values.Insert(100, 999999999);
+        values.Reverse();
 
-interface IPrey
-{
-    void flee();
-}
+        foreach (int value in values)
+        {
+            Console.WriteLine(value);
+        }
 
-interface IPreadtor
-{
-    void hunt();
-}
-
-class Skunk : IPrey
-{
-    public void flee()
-    {
-        Console.WriteLine("Skunk ran away");
-    }
-
-    public void stink()
-    {
-        Console.WriteLine("Skunk released skink gas");
-    }
-}
-
-class Crocodile : IPreadtor
-{
-    public void hunt()
-    {
-        Console.WriteLine("Crocodile searches for food");
-    }
-
-    public void ambush()
-    {
-        Console.WriteLine("Crocodile ambushes prey");
+        Console.WriteLine(values.Count);
+        Console.WriteLine(values.Contains(100));
     }
 }
