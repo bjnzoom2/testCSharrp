@@ -8,8 +8,8 @@ class Program
         Dog dog1 = new Dog("Max", 4, "German Sheperd");
         Console.WriteLine($"Cat, Name: {cat1.getName()}, Age: {cat1.getAge()}, Breed: {cat1.getCatBreed()}");
         Console.WriteLine($"Dog, Name: {dog1.getName()}, Age: {dog1.getAge()}, Breed: {dog1.getDogBreed()}");
-        cat1.meow(10);
-        dog1.bark(10);
+        cat1.speak(10);
+        dog1.speak(10);
         Console.WriteLine($"Number of pets: {Pet.getNumberOfPets()}");
     }
 }
@@ -19,6 +19,15 @@ public abstract class Pet
     protected String name;
     protected int age;
     protected static int numberOfPets;
+
+    public virtual void speak(int times)
+    {
+        for (int i = 0; i < times; i++)
+        {
+            Console.Write("ꙮ ");
+        }
+        Console.WriteLine();
+    }
 
     public String getName()
     {
@@ -47,7 +56,7 @@ public class Cat : Pet
 
     private String catBreed;
 
-    public void meow(int times)
+    public override void speak(int times)
     {
         for (int i = 0; i < times; i++)
         {
@@ -74,9 +83,9 @@ public class Dog : Pet
 
     private String dogBreed;
 
-    public void bark(int times)
+    public override void speak(int times)
     {
-        for (int i = 0; i< times; i++)
+        for (int i = 0; i < times; i++)
         {
             Console.Write("Woof ");
         }
