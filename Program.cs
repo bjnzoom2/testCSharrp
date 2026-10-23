@@ -4,31 +4,31 @@ class Program
 {
     static void Main()
     {
-        Human human = new Human("Lucas ng", 14);
-        Console.WriteLine(human.Age);
-        human.Name = "Mily";
-        Console.WriteLine(human.Name);
+        Vector<int, double> vector = new Vector<int, double>(1, 2.4);
+        Console.WriteLine(vector);
     }
 }
 
-class Human
+public class Vector<T, U>
 {
-    public Human(String name_, int age_) {
-        this.Name = name_;
-        this.age = age_;
+    public Vector(T x_, U y_)
+    {
+        this.X = x_;
+        this.Y = y_;
     }
-    private int age;
 
-    public String Name
+    public T X
     {
         get; set;
     }
 
-    public int Age
+    public U Y
     {
-        get
-        {
-            return age;
-        }
+        get; set;
+    }
+
+    public override string ToString()
+    {
+        return $"x = {X}, y = {Y}";
     }
 }
